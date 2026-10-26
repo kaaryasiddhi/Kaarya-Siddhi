@@ -9,6 +9,8 @@ import type { EofficeFile } from '../../../types/eoffice';
 import { getCurrentUser } from '../../../lib/currentUser';
 import { Ionicons } from '@expo/vector-icons';
 import EofficeListSkeleton from '../../../components/skeletonScreens/EOffice/EofficeListSkeleton';
+import { moderateScale } from "../../../utils/responsive";
+
 
 export default function EofficeList() {
   const { colors } = useTheme();
@@ -143,15 +145,16 @@ const styles = StyleSheet.create({
   statusBadge: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 10 },
   statusText: { color: '#FFFFFF', fontWeight: '700', fontSize: 12 },
   fab: {
-    position: 'absolute',
-    right: 20,
-    bottom: 20,
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 4,
-  },
+  position: 'absolute',
+  right: moderateScale(20),
+  bottom: moderateScale(5),
+  width: moderateScale(55),
+  height: moderateScale(55),
+  borderRadius: moderateScale(55) / 2, // Keeps the FAB perfectly circular
+  alignItems: 'center',
+  justifyContent: 'center',
+  elevation: 4,
+},
+
   fabText: { color: '#FFFFFF', fontSize: 28, lineHeight: 30 },
 });
